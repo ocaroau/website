@@ -17,13 +17,21 @@ export function Dial({ className }: { className?: string }) {
   )
 }
 
-export function Logo({ size = "md", href = "#" }: { size?: "sm" | "md"; href?: string }) {
-  const sm = size === "sm"
+/** Horizontal logo for black backgrounds, built from the two exported Figma pieces (146 x 36 at its design size). */
+export function Logo({ href = "#top", className }: { href?: string; className?: string }) {
   return (
-    <a href={href} className="inline-flex items-center gap-2" aria-label="Ocaro home">
-      <Dial className={sm ? "h-6 w-[26px]" : "h-[34px] w-9"} />
-      <span className={cn("font-heading leading-[1.05] font-semibold tracking-[-.02em] lowercase", sm ? "text-[22px]" : "text-[30px]")}>
-        ocaro
+    <a href={href} aria-label="Ocaro home" className={cn("relative block h-[35.942px] w-[146.016px] shrink-0", className)}>
+      <span className="absolute inset-[20.32%_79.23%_21.01%_3.85%]">
+        <span className="absolute inset-[-11.98%_-10.23%]">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img alt="" src="/images/logo-mark.svg" className="block size-full max-w-none" />
+        </span>
+      </span>
+      <span className="absolute inset-[28.12%_1.92%_28.12%_31.54%]">
+        <span className="absolute inset-[-14.29%_-2.31%]">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img alt="" src="/images/logo-word.svg" className="block size-full max-w-none" />
+        </span>
       </span>
     </a>
   )

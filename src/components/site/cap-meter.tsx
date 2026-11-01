@@ -23,18 +23,18 @@ function needlePoints(progress: number) {
 
 const ARC = "M50.5 149.5 A70 70 0 1 1 149.5 149.5"
 
-/** Dial showing kilometres driven against the cap, with a slider to try it. */
+/** Dial showing kilometres driven against the cap, with a slider to try it. Sizes follow the design (380px dial). */
 export function CapMeter() {
   const [driven, setDriven] = useState(DEFAULT_DRIVEN_KM)
   const progress = driven / CAP_KM
 
   return (
-    <div className="text-center">
+    <>
       <svg
         viewBox="14 14 172 160"
         role="img"
         aria-label="Cap meter showing kilometres driven against the 5,000 km cap"
-        className="mx-auto h-auto w-[min(100%,320px)]"
+        className="h-auto w-[min(100%,380px)]"
       >
         <path d={ARC} pathLength={100} fill="none" stroke="#DC2626" strokeWidth="26" strokeLinecap="round" />
         <path
@@ -50,11 +50,14 @@ export function CapMeter() {
         <polygon fill="#0A0A0A" points={needlePoints(progress)} />
         <circle cx={CENTRE} cy={CENTRE} r="11" fill="#0A0A0A" />
       </svg>
-      <div className="mt-1 font-heading text-[42px] leading-[1.05] font-semibold tracking-[-.02em]">
-        <span className="text-brand">{km(CAP_KM - driven)}</span> km left
-        <small className="block font-sans text-sm font-medium tracking-normal text-muted-foreground">
+      <div className="flex flex-col items-center gap-1.5">
+        <div className="flex items-end gap-2.5">
+          <p className="text-[56px] leading-none font-semibold tracking-[-.04em] text-brand">{km(CAP_KM - driven)}</p>
+          <p className="text-[22px] font-medium text-ink">km left</p>
+        </div>
+        <p className="text-[15px] text-muted-ink">
           {km(driven)} of {km(CAP_KM)} km claimed
-        </small>
+        </p>
       </div>
       <input
         type="range"
@@ -64,9 +67,10 @@ export function CapMeter() {
         value={driven}
         onChange={(e) => setDriven(Number(e.target.value))}
         aria-label="Kilometres driven"
-        className="mt-7 w-full accent-ink"
+        className="cap-range w-full max-w-[448px]"
+        style={{ ["--fill" as string]: `${progress * 100}%` }}
       />
-      <p className="mt-2 text-[13px] text-muted-foreground">Drag to try it.</p>
-    </div>
+      <p className="text-[13px] text-muted-ink">Drag to try it</p>
+    </>
   )
 }

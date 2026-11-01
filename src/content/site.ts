@@ -4,18 +4,23 @@ export const SITE_NAME = "Ocaro"
 export const CAP_KM = 5000
 export const DEFAULT_DRIVEN_KM = 3000
 
+export const stats = [
+  { value: "5,000 km", label: "cents-per-km cap, tracked per car" },
+  { value: "12 weeks", label: "continuous logbook, valid for 5 years" },
+  { value: "PDF + CSV", label: "exports built for your tax agent" },
+  { value: "No route", label: "only start, end and distance are kept" },
+]
+
 export const methods = [
   {
-    tag: "Simple",
     title: "Cents per kilometre",
     text: "Claim a set rate for up to 5,000 work kilometres. No receipts needed, but you must be able to show how you worked out your kilometres.",
-    points: ["Live cap meter", "Trip history you can show the ATO"],
+    points: ["Live cap meter for every car", "Trip history you can show the ATO"],
   },
   {
-    tag: "Bigger claims",
     title: "Logbook method",
     text: "Keep a continuous 12-week logbook to work out your business-use percentage, then claim that share of your running costs.",
-    points: ["12-week logbook built for you", "Valid for five years"],
+    points: ["A 12-week logbook built for you", "Valid for five years"],
   },
 ]
 
@@ -31,6 +36,10 @@ export const faqs = [
   {
     q: "Do I have to track every trip?",
     a: "For the cents-per-kilometre method you need a reasonable way to show how you worked out your kilometres. For the logbook method, you track one continuous 12-week period.",
+  },
+  {
+    q: "Will it drain my battery?",
+    a: "Ocaro uses motion detection to wake GPS only when you are in a car, so it does not track constantly.",
   },
   {
     q: "Is this tax advice?",

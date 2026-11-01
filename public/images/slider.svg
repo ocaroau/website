@@ -1,0 +1,12 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="448" height="6" viewBox="0 0 448 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Slider" clip-path="url(#clip0_0_4)">
+<rect id="Rectangle" width="448" height="6" rx="3" fill="#E8E8EA"/>
+<rect id="Rectangle_2" width="268.8" height="6" rx="3" fill="#0A0A0A"/>
+<path id="Ellipse" d="M278.3 3C278.3 8.24671 274.047 12.5 268.8 12.5C263.553 12.5 259.3 8.24671 259.3 3C259.3 -2.24671 263.553 -6.5 268.8 -6.5C274.047 -6.5 278.3 -2.24671 278.3 3Z" fill="#0A0A0A" stroke-width="3" stroke="white"/>
+</g>
+<defs>
+<clipPath id="clip0_0_4">
+<rect width="448" height="6" fill="white"/>
+</clipPath>
+</defs>
+</svg>

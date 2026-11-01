@@ -3,6 +3,7 @@
 @import "shadcn/tailwind.css";
 
 @theme inline {
+  --breakpoint-sm: 640px;
   --breakpoint-lg: 901px;
 
   --font-sans: var(--font-inter), system-ui, sans-serif;
@@ -32,6 +33,10 @@
   --color-line: var(--line);
   --color-brand: var(--brand);
   --color-brand-200: var(--brand-200);
+  --color-surface-dark: #121214;
+  --color-line-dark: rgba(255, 255, 255, 0.12);
+  --color-muted-dark: #a1a1aa;
+  --color-muted-ink: #5f5f66;
 
   --radius-sm: calc(var(--radius) * 0.6);
   --radius-md: calc(var(--radius) * 0.8);
@@ -83,4 +88,26 @@
   body {
     @apply overflow-x-hidden bg-background leading-[1.6] text-foreground antialiased;
   }
+}
+
+/* Cap-meter slider: 6px track, ink fill and thumb, as in the design. */
+input[type="range"].cap-range {
+  appearance: none;
+  height: 6px;
+  border-radius: 999px;
+  background: linear-gradient(to right, var(--ink) var(--fill, 60%), var(--line) var(--fill, 60%));
+}
+input[type="range"].cap-range::-webkit-slider-thumb {
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 999px;
+  background: var(--ink);
+}
+input[type="range"].cap-range::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--ink);
 }

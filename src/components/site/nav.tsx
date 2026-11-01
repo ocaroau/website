@@ -1,6 +1,3 @@
-import { buttonVariants } from "@/components/ui/button"
-import { cn } from "@/lib/utils"
-import { Container } from "./primitives"
 import { Logo } from "./logo"
 
 const links = [
@@ -10,26 +7,21 @@ const links = [
   { href: "#faq", label: "FAQ" },
 ]
 
+/** Nav sits on the hero photo, so it is white-on-dark and scrolls with the page. */
 export function Nav() {
   return (
-    <header className="sticky top-0 z-20 border-b border-line bg-white/92 backdrop-blur-[10px]">
-      <Container className="flex h-[76px] items-center gap-10">
-        <Logo href="#top" />
-        <nav aria-label="Main" className="hidden gap-8 text-base font-medium lg:flex">
-          {links.map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
-              className="underline-offset-[6px] decoration-brand decoration-2 hover:underline"
-            >
-              {l.label}
-            </a>
-          ))}
-        </nav>
-        <a href="#start" className={cn(buttonVariants({ size: "sm" }), "ml-auto")}>
-          Get started
-        </a>
-      </Container>
+    <header className="relative z-10 flex items-center justify-between px-6 py-7 lg:px-20">
+      <Logo href="#top" />
+      <nav aria-label="Main" className="hidden gap-9 text-[15px] font-medium text-white/70 lg:flex">
+        {links.map((l) => (
+          <a key={l.href} href={l.href} className="transition-colors hover:text-white">
+            {l.label}
+          </a>
+        ))}
+      </nav>
+      <a href="#start" className="rounded-full bg-white px-[22px] py-3 text-[15px] font-semibold text-ink">
+        Get early access
+      </a>
     </header>
   )
 }
