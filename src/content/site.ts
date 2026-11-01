@@ -5,8 +5,8 @@ export const CAP_KM = 5000
 export const DEFAULT_DRIVEN_KM = 3000
 
 export const stats = [
-  { value: "5,000 km", label: "cents-per-km cap, tracked per car" },
-  { value: "12 weeks", label: "continuous logbook, valid for 5 years" },
+  { value: "5,000 km", label: "cents-per-km cap, tracked per car", count: { to: 5000, suffix: " km" } },
+  { value: "12 weeks", label: "continuous logbook, valid for 5 years", count: { to: 12, suffix: " weeks" } },
   { value: "PDF + CSV", label: "exports built for your tax agent" },
   { value: "No route", label: "only start, end and distance are kept" },
 ]

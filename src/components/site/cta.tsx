@@ -1,3 +1,4 @@
+import { Reveal } from "./motion"
 const digit =
   "relative flex h-[88px] w-16 items-center justify-center overflow-hidden rounded-[14px] border border-[#2b2b30] bg-[#161618] text-[52px] font-semibold tracking-[-.02em] text-white"
 
@@ -13,14 +14,14 @@ function Digit({ children, hot = false }: { children: string; hot?: boolean }) {
 /** Closing call to action: red glow, zeroed odometer, headline and button. */
 export function Cta() {
   return (
-    <section id="start" className="relative flex flex-col items-center gap-10 overflow-hidden bg-ink px-6 py-36 text-center lg:px-20">
+    <section id="start" className="relative flex flex-col items-center gap-10 overflow-hidden bg-ink px-6 py-40 text-center lg:px-20 lg:py-52">
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         alt=""
         src="/images/red-glow.svg"
         className="pointer-events-none absolute -top-[2064px] -left-[841px] h-[2768px] w-[1513px] max-w-none"
       />
-      <div className="relative flex flex-col items-center gap-5">
+      <Reveal className="relative flex flex-col items-center gap-6">
         <div className="flex items-center gap-2">
           <Digit>0</Digit>
           <Digit>0</Digit>
@@ -35,7 +36,7 @@ export function Cta() {
           <img alt="" src="/images/dot-ready.svg" className="size-[7px]" />
           <p className="text-sm font-medium text-white/70">Odometer ready · Your first work km starts here</p>
         </div>
-      </div>
+      </Reveal>
       <h2 className="relative text-[clamp(48px,7.5vw,92px)] leading-[1.04] font-semibold tracking-[-.05em]">
         <span className="block text-white">Let&apos;s start</span>
         <span className="block text-brand">measuring.</span>

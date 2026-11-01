@@ -89,25 +89,3 @@
     @apply overflow-x-hidden bg-background leading-[1.6] text-foreground antialiased;
   }
 }
-
-/* Cap-meter slider: 6px track, ink fill and thumb, as in the design. */
-input[type="range"].cap-range {
-  appearance: none;
-  height: 6px;
-  border-radius: 999px;
-  background: linear-gradient(to right, var(--ink) var(--fill, 60%), var(--line) var(--fill, 60%));
-}
-input[type="range"].cap-range::-webkit-slider-thumb {
-  appearance: none;
-  width: 14px;
-  height: 14px;
-  border-radius: 999px;
-  background: var(--ink);
-}
-input[type="range"].cap-range::-moz-range-thumb {
-  width: 14px;
-  height: 14px;
-  border: 0;
-  border-radius: 999px;
-  background: var(--ink);
-}

@@ -1,5 +1,5 @@
-import { Eyebrow } from "./primitives"
-
+import { Odometer, Reveal } from "./motion"
+import { Container, Eyebrow } from "./primitives"
 const digit = "flex h-[76px] w-[52px] items-center justify-center rounded-[14px] border border-line-dark bg-surface-dark text-[44px] font-semibold tracking-[-.02em] text-white"
 
 const steps = [
@@ -23,14 +23,7 @@ const steps = [
     title: "It measures",
     text: "Distance and time are measured on your phone. No tapping, no remembering.",
     mock: (
-      <div className="flex items-center gap-2">
-        <span className={digit}>0</span>
-        <span className={digit}>2</span>
-        <span className={digit}>3</span>
-        <span className="text-[44px] font-semibold text-white">.</span>
-        <span className={`${digit} text-brand`}>6</span>
-        <span className="text-base font-medium text-muted-dark">km</span>
-      </div>
+      <Odometer to={23.6} className={digit} />
     ),
   },
   {
@@ -53,26 +46,28 @@ const steps = [
 
 export function Problem() {
   return (
-    <section id="how" className="flex flex-col gap-16 bg-white px-6 pt-[112px] pb-[120px] lg:px-20">
-      <div className="flex flex-col gap-5">
-        <Eyebrow>How it works</Eyebrow>
-        <h2 className="text-[clamp(40px,6vw,64px)] leading-[1.12] font-semibold tracking-[-.04em] text-ink">Drive. Tag. Done.</h2>
-        <p className="max-w-[560px] text-xl leading-normal text-muted-ink">
-          Ocaro does the counting in the background. You only decide what was work.
-        </p>
-      </div>
-      <div className="grid gap-6 lg:grid-cols-3">
-        {steps.map((s, i) => (
-          <div key={s.title} className="flex flex-col gap-7 rounded-[32px] bg-grey px-4 pt-4 pb-9">
-            <div className="flex h-[240px] items-center justify-center rounded-3xl bg-ink px-6 py-7">{s.mock}</div>
-            <div className="flex flex-col gap-2.5 px-4">
-              <p className="text-[13px] font-semibold text-brand">0{i + 1}</p>
-              <p className="text-[26px] leading-[1.1] font-semibold tracking-[-.02em] text-ink">{s.title}</p>
-              <p className="text-base leading-normal text-muted-ink">{s.text}</p>
-            </div>
-          </div>
-        ))}
-      </div>
+    <section id="how" className="bg-white py-28 lg:py-40">
+      <Container className="flex flex-col gap-20">
+        <Reveal className="flex flex-col gap-6">
+          <Eyebrow>How it works</Eyebrow>
+          <h2 className="text-[clamp(40px,6vw,72px)] leading-[1.05] font-semibold tracking-[-.045em] text-ink">Drive. Tag. Done.</h2>
+          <p className="max-w-[560px] text-xl leading-normal text-muted-ink">
+            Ocaro does the counting in the background. You only decide what was work.
+          </p>
+        </Reveal>
+        <div className="grid gap-6 lg:grid-cols-3 lg:gap-8">
+          {steps.map((s, i) => (
+            <Reveal key={s.title} delay={i * 0.12} className="flex flex-col gap-8 rounded-[32px] bg-grey px-4 pt-4 pb-10">
+              <div className="flex h-[260px] items-center justify-center rounded-3xl bg-ink px-6 py-7">{s.mock}</div>
+              <div className="flex flex-col gap-3 px-4">
+                <p className="text-[13px] font-semibold text-brand">0{i + 1}</p>
+                <p className="text-[26px] leading-[1.1] font-semibold tracking-[-.02em] text-ink">{s.title}</p>
+                <p className="text-base leading-normal text-muted-ink">{s.text}</p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </Container>
     </section>
   )
 }
