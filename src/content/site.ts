@@ -1,3 +1,6 @@
+export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://ocaro.com.au"
+export const SITE_NAME = "Ocaro"
+
 export const CAP_KM = 5000
 export const DEFAULT_DRIVEN_KM = 3000
 

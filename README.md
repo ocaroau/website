@@ -78,8 +78,25 @@ Components land in `src/components/ui/`. This project's `Button` is customised (
 ## Not done yet
 
 - The "Get started" and "Get early access" buttons don't go anywhere: there is no signup form or backend.
-- No Open Graph image, sitemap or analytics.
+- No Open Graph share image or analytics.
 - Privacy, terms and contact pages don't exist.
+
+## Deploying
+
+**GitHub Pages (automatic).** `.github/workflows/pages.yml` lints, builds a static export (`GITHUB_PAGES=true` turns on `output: "export"`) and deploys `out/` on every push to `main`.
+
+One-time setup, once the repo is public:
+1. Repo → Settings → Pages → Source: **GitHub Actions**.
+2. Custom domain: add it under Settings → Pages and point DNS at GitHub. Leave the repository variable `PAGES_BASE_PATH` unset.
+3. No custom domain: set a repository variable (Settings → Secrets and variables → Actions → Variables) `PAGES_BASE_PATH` = `/website`, so assets load from `<user>.github.io/website`.
+
+**Cloudflare Workers (optional).** `wrangler.jsonc` and `open-next.config.ts` deploy through OpenNext: build command `pnpm run build:worker`, deploy command `npx wrangler deploy`. Both targets use the same code, so keep only the one you want connected.
+
+To preview the static export locally: `GITHUB_PAGES=true pnpm build`, then serve `out/`.
+
+## SEO
+
+Canonical URL, Open Graph and Twitter tags are set in `src/app/layout.tsx`; `robots.txt` and `sitemap.xml` come from `src/app/robots.ts` and `sitemap.ts`. The site URL defaults to `https://ocaro.com.au` (`SITE_URL` in `src/content/site.ts`, overridable with `NEXT_PUBLIC_SITE_URL`). Still to add: a share image and structured data.
 
 ## Notes
 
